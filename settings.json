@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./lab10/ex01/src"
+    ]
+}

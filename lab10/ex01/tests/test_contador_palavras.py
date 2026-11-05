@@ -1,4 +1,5 @@
-from src.contador_palavras import contar_palavras
+import pytest
+from contador_palavras import contar_palavras
 
 
 def test_texto_vazio():

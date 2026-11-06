@@ -5,6 +5,8 @@ class Fila:
         self._prioritarias_emitidas = 0
 
     def emitir(self, tipo):
+        if tipo not in ("normal", "prioritaria"):
+            raise ValueError("tipo invalido")
         self.aguardando += 1
 
         if tipo == "prioritaria":

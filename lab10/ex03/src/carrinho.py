@@ -1,15 +1,25 @@
 
-CUPONS = {"DEZ": 10}
+CUPONS = {
+    "DEZ": (10, 10000),
+    "VINTE": (20, 30000)
+}
 
 
 class Carrinho:
     def __init__(self):
         self._subtotal = 0
-        self._desconto = 0
+        self._cupom = None
 
     def adicionar(self, preco, quantidade=1):
         if preco <= 0:
             raise ValueError("preco deve ser positivo")
+
+        if (
+            isinstance(quantidade, bool)
+            or not isinstance(quantidade, int)
+            or quantidade < 1
+        ):
+            raise ValueError("quantidade invalida")
 
         self._subtotal += preco * quantidade
 
@@ -17,11 +27,16 @@ class Carrinho:
         if codigo not in CUPONS:
             raise ValueError("cupom desconhecido")
 
-        self._desconto = CUPONS[codigo]
+        self._cupom = codigo
 
     @property
     def total(self):
-        if self._desconto == 10 and self._subtotal < 10000:
+        if self._cupom is None:
             return self._subtotal
 
-        return self._subtotal * (100 - self._desconto) // 100
+        desconto, minimo = CUPONS[self._cupom]
+
+        if self._subtotal < minimo:
+            return self._subtotal
+
+        return self._subtotal * (100 - desconto) // 100

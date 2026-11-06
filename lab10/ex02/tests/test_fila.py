@@ -1,4 +1,4 @@
-
+import pytest
 from src.fila import Fila
 
 
@@ -24,3 +24,11 @@ def test_numeracao_independente():
     assert fila.emitir("prioritaria") == "P1"
     assert fila.emitir("normal") == "N2"
     assert fila.emitir("prioritaria") == "P2"
+
+def test_tipo_invalido():
+    fila = Fila()
+
+    with pytest.raises(ValueError):
+        fila.emitir("vip")
+
+    assert fila.aguardando == 0

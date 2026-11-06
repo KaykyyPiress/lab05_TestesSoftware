@@ -48,3 +48,18 @@ def test_adicionar_apos_cupom():
     carrinho.adicionar(1000)
 
     assert carrinho.total == 900
+
+def test_cupom_dez():
+    carrinho = Carrinho()
+    carrinho.adicionar(5000)
+    carrinho.aplicar_cupom("DEZ")
+
+    assert carrinho.total == 5000
+
+
+def test_adicionar_apos_cupom():
+    carrinho = Carrinho()
+    carrinho.aplicar_cupom("DEZ")
+    carrinho.adicionar(1000)
+
+    assert carrinho.total == 1000

@@ -63,3 +63,10 @@ def test_adicionar_apos_cupom():
     carrinho.adicionar(1000)
 
     assert carrinho.total == 1000
+
+def test_cupom_vinte_no_limite():
+    carrinho = Carrinho()
+    carrinho.adicionar(30000)
+    carrinho.aplicar_cupom("VINTE")
+
+    assert carrinho.total == 24000

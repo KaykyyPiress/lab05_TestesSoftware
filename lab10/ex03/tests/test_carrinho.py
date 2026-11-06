@@ -123,3 +123,5 @@ def test_cupom_ativa_quando_subtotal_atinge_minimo():
     carrinho.adicionar(1000)
 
     assert carrinho.total == 9000
+
+

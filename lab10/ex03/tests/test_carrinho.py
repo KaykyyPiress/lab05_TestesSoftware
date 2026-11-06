@@ -1,6 +1,6 @@
 
 import pytest
-from carrinho import Carrinho
+from src.carrinho import Carrinho
 
 
 def test_carrinho_vazio():

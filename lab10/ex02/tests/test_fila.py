@@ -15,3 +15,12 @@ def test_emitir_primeira_senha_normal():
 def test_emitir_primeira_senha_prioritaria():
     fila = Fila()
     assert fila.emitir("prioritaria") == "P1"
+
+
+def test_numeracao_independente():
+    fila = Fila()
+
+    assert fila.emitir("normal") == "N1"
+    assert fila.emitir("prioritaria") == "P1"
+    assert fila.emitir("normal") == "N2"
+    assert fila.emitir("prioritaria") == "P2"

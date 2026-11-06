@@ -32,3 +32,9 @@ def test_tipo_invalido():
         fila.emitir("vip")
 
     assert fila.aguardando == 0
+
+def test_chamar_fila_vazia():
+    fila = Fila()
+
+    with pytest.raises(IndexError):
+        fila.chamar()

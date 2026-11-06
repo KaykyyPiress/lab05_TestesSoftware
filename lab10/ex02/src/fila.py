@@ -5,4 +5,8 @@ class Fila:
 
     def emitir(self, tipo):
         self.aguardando += 1
+
+        if tipo == "prioritaria":
+            return "P1"
+
         return "N1"

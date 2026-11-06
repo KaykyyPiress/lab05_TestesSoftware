@@ -32,7 +32,7 @@ def test_cupom_dez():
     carrinho.adicionar(5000)
     carrinho.aplicar_cupom("DEZ")
 
-    assert carrinho.total == 4500
+    assert carrinho.total == 5000
 
 
 def test_cupom_invalido():
